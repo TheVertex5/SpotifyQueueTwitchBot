@@ -49,7 +49,7 @@ async def queue_command(cmd: ChatCommand):
 
 
 async def run():
-    twitch = await Twitch(config('APP_ID'), config('APP_SECRET'))
+    twitch = await Twitch(config('TWITCH_APP_ID'), config('TWITCH_APP_SECRET'))
     auth = UserAuthenticator(twitch, USER_SCOPE, force_verify=False)
     token, refresh_token = await auth.authenticate()
     await twitch.set_user_authentication(token, USER_SCOPE, refresh_token)
